@@ -5,11 +5,13 @@ import home from './routes/home.js';
 import en from './routes/en.js';
 import dutch from './routes/dutch.js';
 import pronounce from './routes/pronounce.js';
+import quotes from './routes/quotes.js';
 
 app.use('/', home);
 app.use('/word/dutch', dutch);
 app.use('/word', en);
 app.use('/pronounce', pronounce);
+app.use('/quotes', quotes);
 
 app.use('/', function(req, res) {
     res.status(404).json({
