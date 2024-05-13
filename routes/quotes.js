@@ -4,12 +4,14 @@ import { readFileSync } from "fs";
 import { randomArrayItem } from "random-array-item";
 import { setDefaultHeaders } from "../utils/headers.js";
 import { postToGoogleChat } from '../utils/google-chat-webhook.js';
+import { makeGoogleSearchLink } from '../utils/google-search-link.js';
 const englishQuotesData  = JSON.parse(readFileSync(new URL("../data/quotes/quotes.json", import.meta.url)));
 
 router.get("/", function (req, res) {
   setDefaultHeaders(res);
 
   const fetchRandomWord = randomArrayItem(englishQuotesData);
+  fetchRandomWord.link = makeGoogleSearchLink(fetchRandomWord.quote)
 
   const content = JSON.stringify(fetchRandomWord, null, 2)
   postToGoogleChat(content)
