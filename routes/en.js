@@ -5,6 +5,7 @@ import * as  cheerio from "cheerio";
 import { pronounce } from "node-pronounce";
 import randomUseragent from "random-useragent";
 import { setDefaultHeaders } from "../utils/headers.js";
+import { postToGoogleChat } from '../utils/google-chat-webhook.js';
 const rua = randomUseragent.getRandom();
 var wordOfDay = [];
 const baseUrl = 'https://randomword.com';
@@ -50,7 +51,9 @@ router.get("/", function (req, res) {
           pronounceword.charAt(0).toUpperCase() + pronounceword.slice(1)
         ),
       });
-      res.send(JSON.stringify(wordOfDay, null, 2));
+      const content = JSON.stringify(wordOfDay, null, 2)
+      postToGoogleChat(content);
+      res.send(content);
     })
     .catch(function (error) {
       if (!error.response) {
