@@ -3,13 +3,11 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const postToGoogleChat = async (content) => {
+export const postToGoogleChat = (content) => {
   try {
-    const response = await axios.post(process.env.CHANNEL, {
+    axios.post(process.env.CHANNEL, {
       text: content
     });
-    console.log('Message sent to Google Chat:', response.data);
   } catch (error) {
-    console.error('Failed to send message to Google Chat:', error);
   }
 };
