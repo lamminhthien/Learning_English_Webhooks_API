@@ -17,7 +17,7 @@ router.get("/", async function (req, res) {
   fetchRandomWord.time = (new Date()).toLocaleString()
 
   const content = JSON.stringify(fetchRandomWord, null, 2)
-  postToGoogleChat(content)
+  await postToGoogleChat(content)
   res.send(content);
 });
 
