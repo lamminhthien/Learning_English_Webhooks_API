@@ -14,6 +14,7 @@ router.get("/", async function (req, res) {
   const fetchRandomWord = randomArrayItem(englishQuotesData);
   fetchRandomWord.link = makeGoogleSearchLink(fetchRandomWord.quote)
   fetchRandomWord.translate = await translateToVietnamese(fetchRandomWord.quote)
+  fetchRandomWord.time = new Date.now();
 
   const content = JSON.stringify(fetchRandomWord, null, 2)
   postToGoogleChat(content)
