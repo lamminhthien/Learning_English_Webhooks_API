@@ -200,3 +200,8 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 - Using cron-job.org
 - Make an schedule job every 15 minutes or every 30 minutes depend on you
 - Enjoy and learning
+  <img width="1440" alt="image" src="https://github.com/lamminhthien/Learning_English_Webhooks_API/assets/99172799/4463089a-bf52-402f-a779-8db39fdc9a94">
+
+
+# In the future, load data from static file online, easy for edit or modified quotes list
+<img width="1438" alt="image" src="https://github.com/lamminhthien/Learning_English_Webhooks_API/assets/99172799/b10210e2-f8eb-4318-b6a9-476542af4cdc">
